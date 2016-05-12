@@ -32,9 +32,9 @@
 
 
 ###prototype_images
-|id     |image |prototype_id|
-|-------|------|------------|
-|integer|string|integer     |
+|id     |image |prototype_id|type   |
+|-------|------|------------|-------|
+|integer|string|integer     |integer|
 
 
 ###comments
@@ -72,6 +72,7 @@ integer|integer |integer     |
     Prototype_image
 
        belongs_to  :prototype
+       enum type:  %i(main sub)
 
 
 
