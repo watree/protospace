@@ -19,6 +19,9 @@ gem 'erb2haml'
 #design
 gem 'bootstrap-sass'
 
+#user_management
+gem 'devise'
+
 group :development, :test do
   gem 'byebug'
 end
