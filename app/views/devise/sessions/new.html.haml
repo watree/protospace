@@ -1,0 +1,16 @@
+.container
+  =form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form"}) do |f|
+    %h2.form-signin-heading Please sign in
+    %label.sr-only{for: "inputEmail"} Email address
+    =f.email_field :email, placeholder: "E-Mail address", id: "inputEmail", class: "form-control"
+    %label.sr-only{for: "inputPassword"} Password
+    =f.password_field :password, placeholder: "Password", id: "inputPassword", class: "form-control"
+    .checkbox
+      %label
+        %input{type: "checkbox", value: "remember-me"}/
+        Remember me
+    =f.submit "Sign in", class: "btn btn-lg btn-block"
+  .text-center
+    %p
+      Not a member?
+      = link_to "Sign up now", new_user_registration_path
