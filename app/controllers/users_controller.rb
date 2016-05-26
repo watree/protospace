@@ -8,7 +8,11 @@ class UsersController < ApplicationController
 
   def update
     current_user.update(update_params)
-    redirect_to root_path, notice: 'Updated successfully'
+    if current_user.save
+      redirect_to root_path, notice: 'Updated successfully'
+    else
+      render "edit"
+    end
   end
 
   private
