@@ -8,10 +8,10 @@ class UsersController < ApplicationController
 
   def update
     current_user.update(update_params)
-    if current_user.save
+    if current_user.update
       redirect_to root_path, notice: 'Updated successfully'
     else
-      render "edit"
+      render :edit
     end
   end
 
