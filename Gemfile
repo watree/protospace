@@ -18,6 +18,7 @@ gem 'erb2haml'
 
 #design
 gem 'bootstrap-sass'
+gem 'carrierwave'
 
 #user_management
 gem 'devise'
