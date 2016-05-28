@@ -19,7 +19,7 @@ class PrototypesController < ApplicationController
       :title,
       :catch_copy,
       :concept,
-      :user_id
+      :user_id,
       prototype_images_attributes: [:image, :type]
     )
   end
