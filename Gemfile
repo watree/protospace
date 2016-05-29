@@ -15,6 +15,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #view
 gem 'haml-rails'
 gem 'erb2haml'
+gem 'kaminari'
 
 #design
 gem 'bootstrap-sass'
