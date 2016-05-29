@@ -1,8 +1,8 @@
-- if current_user.errors.any?
+- if var.errors.any?
   %div{ class: "alert alert-danger" }
     = link_to "x", "#", data:{ dismiss: "alert" }, class: "close"
     %ul
       %li
-        = current_user.errors.count
-          - current_user.errors.full_messages.each do |message|
+        = var.errors.count
+          - var.errors.full_messages.each do |message|
           = message

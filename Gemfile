@@ -18,6 +18,8 @@ gem 'erb2haml'
 
 #design
 gem 'bootstrap-sass'
+gem 'carrierwave'
+gem 'rmagick'
 
 #user_management
 gem 'devise'
