@@ -1,4 +1,9 @@
 class PrototypesController < ApplicationController
+
+  def index
+    @prototypes = Prototype.includes(:user).order("created_at DESC").page(params[:page]).per(8)
+  end
+
   def new
     @prototype = Prototype.new
     @prototype.prototype_images.build
@@ -11,6 +16,10 @@ class PrototypesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @prototype = Prototype.find(params[:id])
   end
 
   private
