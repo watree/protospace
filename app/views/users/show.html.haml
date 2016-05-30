@@ -7,7 +7,7 @@
         %h4#top-aligned-media.media-heading
           = @user.nickname
           %span.label.label-default.project-number
-            29
+            = @prototypes.count
             %i Projects
         .proto-user
           %span.degree
@@ -23,7 +23,7 @@
               = @user.works
 .container.proto-list
   .row
-    = render partial: "layouts/prototype", collection: @user.prototypes
+    = render partial: "layouts/prototype", collection: @prototypes
 .text-center
   %ul.pagination
     %li.disabled
