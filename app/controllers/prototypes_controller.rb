@@ -1,7 +1,7 @@
 class PrototypesController < ApplicationController
 
   def index
-    @prototypes = Prototype.order("created_at DESC").page(params[:page]).per(8)
+    @prototypes = Prototype.includes(:user).order("created_at DESC").page(params[:page]).per(8)
   end
 
   def new
