@@ -1,16 +1,9 @@
-.row
-  .col-md-12
-    .cover-image-upload
-      = f.fields_for :prototype_images, (@prototype.prototype_images.main) do |image_form|
-        = image_form.file_field :image
-        = image_form.hidden_field :type, value: :main
-  .col-md-12
-    %ul.proto-sub-list.list-group
-      = f.fields_for :prototype_images, (@prototype.prototype_images.sub) do |images_form|
-        %li.list-group-item.sub_image_form.appear_form
-          .image-upload
-            = images_form.file_field :image, class: "image-upload"
-            = images_form.hidden_field :type, value: :sub
-    %li.list-group-item.col-md-12
-      .image-upload-plus
-        %span +
+%ul.proto-sub-list.list-group
+  = f.fields_for :prototype_images, (@prototype.prototype_images.sub) do |images_form|
+    %li.list-group-item.sub_image_form.appear_form
+      .image-upload
+        = images_form.file_field :image, class: "image-upload"
+        = images_form.hidden_field :type, value: :sub
+%li.list-group-item.col-md-12
+  .image-upload-plus
+    %span +
