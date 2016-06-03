@@ -1,4 +1,5 @@
 class PrototypesController < ApplicationController
+  before_action :set_product, only: [:show, :destroy, :edit, :update]
 
   def index
     @prototypes = Prototype.includes(:user).order("created_at DESC").page(params[:page]).per(8)
@@ -19,15 +20,9 @@ class PrototypesController < ApplicationController
   end
 
   def show
-    @prototype = Prototype.find(params[:id])
-  end
-
-  def edit
-    @prototype = Prototype.find(params[:id])
   end
 
   def update
-    @prototype = Prototype.find(params[:id])
     if @prototype.update(prototype_params)
       redirect_to root_path, notice: 'Updated successfully'
     else
@@ -36,7 +31,6 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    @prototype = Prototype.find(params[:id])
     if @prototype.user_id == current_user.id
       @prototype.destroy
       redirect_to root_path, notice: 'Deleted successfully'
@@ -52,6 +46,10 @@ class PrototypesController < ApplicationController
       :user_id,
       prototype_images_attributes: [:id, :image, :type, :prototype_id]
     )
+  end
+
+  def set_product
+    @prototype = Prototype.find(params[:id])
   end
 
 end
