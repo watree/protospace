@@ -1,8 +1,12 @@
 class PrototypesController < ApplicationController
-  before_action :set_product, only: [:show, :destroy, :edit, :update]
+  before_action :set_product, except: [:index, :new, :create]
 
   def index
-    @prototypes = Prototype.includes(:user).order("created_at DESC").page(params[:page]).per(8)
+    @prototypes = Prototype \
+                   .includes(:user)
+                   .order(created_at: :DESC)
+                   .page(params[:page])
+                   .per(8)
   end
 
   def new
