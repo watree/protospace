@@ -22,6 +22,27 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.find(params[:id])
   end
 
+  def edit
+    @prototype = Prototype.find(params[:id])
+  end
+
+  def update
+    @prototype = Prototype.find(params[:id])
+    if @prototype.update(prototype_params)
+      redirect_to root_path, notice: 'Updated successfully'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @prototype = Prototype.find(params[:id])
+    if @prototype.user_id == current_user.id
+      @prototype.destroy
+      redirect_to root_path, notice: 'Deleted successfully'
+    end
+  end
+
   private
   def prototype_params
     params.require(:prototype).permit(
@@ -29,7 +50,8 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       :user_id,
-      prototype_images_attributes: [:image, :type]
+      prototype_images_attributes: [:id, :image, :type, :prototype_id]
     )
   end
+
 end
