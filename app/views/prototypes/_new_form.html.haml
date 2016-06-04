@@ -1,9 +1,10 @@
-- 2.times do
+%ul.proto-sub-list.list-group
+  - 2.times do
+    = f.fields_for :prototype_images do |image_form|
+      %li.list-group-item.col-md-4.appear_form
+        .image-upload
+          = image_form.file_field :image
+          = image_form.hidden_field :type, value: :sub
   %li.list-group-item.col-md-4
-    .image-upload
-      = f.fields_for :prototype_images do |image_form|
-        = image_form.file_field :image
-        = image_form.hidden_field :type, value: :sub
-%li.list-group-item.col-md-4
-  .image-upload-plus
-    %span +
+    .image-upload-plus
+      %span +
