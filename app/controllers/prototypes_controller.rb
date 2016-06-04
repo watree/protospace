@@ -1,7 +1,12 @@
 class PrototypesController < ApplicationController
+  before_action :set_product, except: [:index, :new, :create]
 
   def index
-    @prototypes = Prototype.includes(:user).order("created_at DESC").page(params[:page]).per(8)
+    @prototypes = Prototype \
+                   .includes(:user)
+                   .order(created_at: :DESC)
+                   .page(params[:page])
+                   .per(8)
   end
 
   def new
@@ -19,7 +24,21 @@ class PrototypesController < ApplicationController
   end
 
   def show
-    @prototype = Prototype.find(params[:id])
+  end
+
+  def update
+    if @prototype.update(prototype_params)
+      redirect_to root_path, notice: 'Updated successfully'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @prototype.user_id == current_user.id
+      @prototype.destroy
+      redirect_to root_path, notice: 'Deleted successfully'
+    end
   end
 
   private
@@ -29,7 +48,12 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       :user_id,
-      prototype_images_attributes: [:image, :type]
+      prototype_images_attributes: [:id, :image, :type, :prototype_id]
     )
   end
+
+  def set_product
+    @prototype = Prototype.find(params[:id])
+  end
+
 end
