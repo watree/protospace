@@ -7,6 +7,7 @@ class LikesController < ApplicationController
 
   def destroy
     @prototype.likes.find_by(user_id: current_user.id).destroy
+    @prototype = Prototype.find(params[:prototype_id])
   end
 
   private
