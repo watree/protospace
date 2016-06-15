@@ -12,6 +12,6 @@ before_action :set_prototype, only: :create
   end
 
   def comments_params
-    params.require(:comment).permit(:prototype_id, :user_id, :text)
+    params.require(:comment).permit(:user_id, :text)
   end
 end
