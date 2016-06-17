@@ -1,4 +1,4 @@
-class Prototypes::PopularController < ApplicationController
+class Prototypes::PopularController < PrototypesController
 
   def index
     @prototypes = Prototype \
@@ -6,5 +6,6 @@ class Prototypes::PopularController < ApplicationController
                    .order(likes_count: :DESC)
                    .page(params[:page])
                    .per(8)
+    render 'prototypes/index'
   end
 end
