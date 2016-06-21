@@ -21,6 +21,7 @@ gem 'kaminari'
 gem 'bootstrap-sass'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'acts-as-taggable-on'
 
 #user_management
 gem 'devise'
