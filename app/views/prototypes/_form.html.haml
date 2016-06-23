@@ -24,7 +24,7 @@
           .row
             - 3.times do |num|
               .col-md-12
-                = text_field_tag "prototype[tag_list][]", placeholder: "Tag #{num+1}"
+                = text_field_tag "prototype[tag_list][]", "", placeholder: "Tag #{num+1}"
       .row.text-center.proto-btn
         = f.submit "Publish", class: "btn btn-lg btn-primary btn-block", data: { disable_with: "Sending now..." }
 
