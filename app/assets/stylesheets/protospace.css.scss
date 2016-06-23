@@ -603,3 +603,18 @@ body {
   top: 10px;
   left: 20px;
 }
+
+.btn.btn-default.btn-tag {
+    background: #FFFFFF;
+    border: 1px solid #DDD;
+    border-radius: 3px;
+    width: 100%;
+    color: gray;
+    margin: 15px 0;
+    padding: 20px;
+}
+
+.btn.btn-default.btn-tag:hover {
+  background-color: #C2EEFF;
+  color: black;
+}
