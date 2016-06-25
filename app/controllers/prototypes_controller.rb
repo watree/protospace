@@ -52,7 +52,7 @@ class PrototypesController < ApplicationController
       :concept,
       :user_id,
       prototype_images_attributes: [:id, :image, :type, :prototype_id]
-    )
+    ).merge(tag_list: params[:prototype][:tag_list])
   end
 
   def set_product

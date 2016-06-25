@@ -5,6 +5,7 @@ class Prototype < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :prototype_images
   validates :catch_copy, :concept, :title, presence: true
+  acts_as_taggable
 
   def post_like?(user)
     likes.find_by(user_id: user.id)
