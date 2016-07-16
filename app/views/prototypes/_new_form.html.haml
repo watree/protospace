@@ -2,7 +2,7 @@
   - 2.times do
     = f.fields_for :prototype_images do |image_form|
       %li.list-group-item.col-md-4.appear_form
-        .image-upload
+        .image-upload.js-preview
           = image_form.file_field :image
           = image_form.hidden_field :type, value: :sub
   %li.list-group-item.col-md-4
