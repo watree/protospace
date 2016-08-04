@@ -10,7 +10,7 @@ class PrototypeImageUploader < CarrierWave::Uploader::Base
 
   def default_url
     # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-    '/uploads/noimage.png'
+    'noimage-big.png'
   end
 
   def extension_white_list

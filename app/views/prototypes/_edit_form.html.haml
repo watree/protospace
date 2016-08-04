@@ -1,7 +1,7 @@
 %ul.proto-sub-list.list-group
   = f.fields_for :prototype_images, (@prototype.prototype_images.sub) do |images_form|
     %li.list-group-item.col-md-12.appear_form
-      .image-upload
+      .image-upload.js-preview
         = images_form.file_field :image, class: "image-upload"
         = images_form.hidden_field :type, value: :sub
 %li.list-group-item.col-md-12
