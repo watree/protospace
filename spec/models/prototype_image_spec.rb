@@ -3,9 +3,9 @@ require 'rails_helper'
 describe PrototypeImage do
   describe '#create' do
     it 'has the wrong content format' do
-      image = build(:prototype_image, image: "")
+      image = build(:prototype_image, :main, image: fixture_file_upload('img/sample.bmp', 'img/bmp'))
       image.valid?
-      expect(image.errors[:image]).to include("can't be blank")
+      expect(image.errors[:image][0]).to include("You are not allowed to upload")
     end
 
     describe 'with valid attributes' do
