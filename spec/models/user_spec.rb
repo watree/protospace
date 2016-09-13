@@ -6,8 +6,8 @@ describe User do
       it "is valid with a nickname, email, password" do
         user = build(:user)
         expect(user).to be_valid
-       end
       end
+    end
 
     context 'without valid attributes' do
       it "is invalid without a nickname" do
